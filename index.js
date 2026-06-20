@@ -129,7 +129,7 @@ app.use((req, res) => {
   }
   res.redirect("/404");
 });
-const server = createServer();
+const server = createServer(app);
 logging.set_level(logging.DEBUG);
 wisp.options.dns_method = "resolve";
 wisp.options.dns_servers = ["1.1.1.1", "1.0.0.1", "8.8.8.8", "8.8.4.4"];
@@ -431,7 +431,7 @@ server.on("error", (error) => {
   console.error("Server error:", error);
 });
 const port = process.env.PORT || 3000;
-server.listen(port, () => {
+server.listen(port, "0.0.0.0", () => {
   console.log(`Server running on http://localhost:${port}`);
   //optional multiplayer relay server for yomi
   console.log(`Relay running on ws://localhost:${port}/relay/`);
