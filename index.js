@@ -432,7 +432,6 @@ server.on("error", (error) => {
 });
 const port = process.env.PORT || 3000;
 server.listen(port, "0.0.0.0", () => {
-  console.log(`Server running on http://localhost:${port}`);
-  //optional multiplayer relay server for yomi
-  console.log(`Relay running on ws://localhost:${port}/relay/`);
+  console.log(`Server running on port ${port}`);
 });
+
